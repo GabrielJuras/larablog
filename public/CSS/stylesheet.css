@@ -1,0 +1,19 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+.cont_flex{
+    flex-grow: 1;
+}
+
+nav {
+    z-index: 1;
+}
+
+.title {
+    text-decoration: none !important;
+    color: black;
+}
