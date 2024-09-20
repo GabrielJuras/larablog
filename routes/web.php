@@ -22,8 +22,7 @@ Route::get('/content/{id}', function ($id) {
     $para=Para::all();
     $content = Arr::first(Content::all(), fn($content)=>$content['id']==$id);
   
-    $images = Arr::get(Content::all(), $id-1)->pic;
-    
+    $images = Arr::get(Content::all(), $id-1)->pic->toQuery()->paginate(4);
     
     
     return view('content',[

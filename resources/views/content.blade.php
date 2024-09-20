@@ -28,7 +28,7 @@
 
         <x-article_para :content="$content"/>
 
-        <x-pagination/>
+        {{$images->links('pagination::bootstrap-5')}}
 
     </div>
         <x-footer/>
