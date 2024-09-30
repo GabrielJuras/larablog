@@ -24,9 +24,9 @@
         @endforeach
        
         
-
-        <x-article_para :content="$content"/>
-
+        @foreach ($para as $item)
+        <x-article_para :item="$item" :content="$content"/>
+        @endforeach
         {{$images->links('pagination::bootstrap-5')}}
 
     </div>
