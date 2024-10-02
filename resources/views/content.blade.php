@@ -22,12 +22,12 @@
            <x-gallery :picture="$item"/>
 
         @endforeach
+       {{$images->links('pagination::bootstrap-5')}}
        
         
-        @foreach ($para as $item)
-        <x-article_para :item="$item" :content="$content"/>
-        @endforeach
-        {{$images->links('pagination::bootstrap-5')}}
+        <x-article_para :item="$item" :content="$content" :para="$para"/>
+       
+        
 
     </div>
         <x-footer/>
