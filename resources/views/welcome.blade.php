@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url('CSS/stylesheet.css')}}">
     <title>ADSCHANEL@article-title</title>
-    @vite ('resources/js/app.js')
+    @vite (['resources/js/app.js'])
 </head>
 <body>
     <h1>ADSCHANEL</h1>

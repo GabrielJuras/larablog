@@ -10,28 +10,29 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-     return view('welcome',[
-        'contents' =>Content::all(),
-        
+
+    $tavak = Content::all();
+    
+
+    return view('welcome',[
+        'contents' => $tavak
+    
                 
     ]);
 });
 
 Route::get('/content/{id}', function ($id) {
 
-    
-    
-    
+   
     $content = Arr::first(Content::all(), fn($content)=>$content['id']==$id);
     
-    $images = Arr::get(Content::all(), $id-1)->pic;
-    $content_para=array();
-
-    foreach ($images as $item) {
-        array_push($content_para, $item['para_id']);
-    };
-    $para=Pic::all();
-    dd($content_para);
+    $para = $content->para;
+    
+    $images = $content->pic->toQuery()->paginate(4);
+    
+    dd($para);
+    
+    
     
     return view('content',[
         'content'=> $content,

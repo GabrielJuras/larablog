@@ -25,7 +25,7 @@
        {{$images->links('pagination::bootstrap-5')}}
        
         
-        <x-article_para :item="$item" :content="$content" :para="$para"/>
+        <x-article_para :images="$images" :content="$content" :para="$para"/>
        
         
 
