@@ -9,18 +9,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class Para extends Model
-{
-    use HasFactory; 
+{   use HasFactory;
 
-    public function content():BelongsTo
+    protected $table = 'paras';
+
+    // A Para belongs to a Content
+    public function content(): BelongsTo
     {
-
-        return $this->belongsTo(Content::class);
+        return $this->belongsTo(Content::class, 'content_id');
     }
 
-    public function pic():HasMany
+    // A Para has many Images
+    public function pic(): HasMany
     {
-
-        return $this->hasMany(Pic::class);
-}
+        return $this->hasMany(Pic::class, 'para_id');
+    }
 }

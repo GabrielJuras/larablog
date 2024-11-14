@@ -16,13 +16,15 @@
         <x-nav/>
 
         <x-search/>
-        @foreach ($images as $item)
+        
+        @foreach ($gallery as $item)
         
       
            <x-gallery :picture="$item"/>
 
         @endforeach
-       {{$images->links('pagination::bootstrap-5')}}
+       
+
        
         
         <x-article_para :images="$images" :content="$content" :para="$para"/>

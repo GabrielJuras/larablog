@@ -5,22 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+
 
 class Content extends Model
 {
     use HasFactory;
+
     protected $table = 'contents';
 
-    public function para():HasMany
+    // A Content has many Paras
+    public function paras(): HasMany
     {
+        return $this->hasMany(Para::class, 'content_id');
+    }
 
-        return $this->hasMany(Para::class);
+    // Access all images through paras
+    public function pic()
+    {
+        return $this->hasManyThrough(Pic::class, Para::class, 'content_id', 'para_id', 'id', 'id');
     }
     
-    public function pic():HasManyThrough
-    {
-
-        return $this->hasManyThrough(Pic::class, Para::class);
-    }
+    
+    
 }
+return $content= Content::factory()->count(3)->make();

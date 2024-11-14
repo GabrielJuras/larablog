@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('pics', function (Blueprint $table) {
             $table->id();
-            
             $table->foreignIdFor(Para::class);
+                       
             $table->longText('url');
             $table->string('iname');            
             $table->timestamps();

@@ -20,14 +20,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Content::factory(10)->create();
+        Content::factory(10)
+                ->has(
+                    Para::factory(count:rand(1,10))
+                        ->has(
+                            Pic::factory(count:rand(6,16))))
+                ->create();
         
-        for ($i=0; $i <10 ; $i++) { 
-            Para::factory()->count(5)->create(); 
-        }
-        for ($i=0; $i <50 ; $i++) { 
-            Pic::factory()->count(4)->create(); 
+        
         }
             
-    }
+    
 }

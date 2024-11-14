@@ -6,19 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pic extends Model
-{
-    use HasFactory;
-    public function para():BelongsTo
-    {
+{   use HasFactory;
 
-        return $this->belongsTo(Para::class);
+    protected $table = 'pics';
+
+    // An Image belongs to a Para
+    public function para(): BelongsTo
+    {
+        return $this->belongsTo(Para::class, 'para_id');
     }
-    public function content():HasOneThrough
-    {
 
-    return $this->hasOneThrough(Content::class, Para::class);
+    // An Image also belongs to a Content (if needed)
+    public function content(): BelongsTo
+    {
+        return $this->belongsTo(Content::class, 'content_id');
     }
 }

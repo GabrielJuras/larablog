@@ -22,7 +22,7 @@ class paraFactory extends Factory
         return [
             'paratitle'=> fake()-> text(50),
             'para'=>fake()->text(200),
-            'content_id'=>fake()->randomElement(Content::pluck('id'))
+            
         ];
     }
 }

@@ -18,12 +18,11 @@ class picFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {   
+    {        
         return [
             'url'=>'https://picsum.photos/id/'.(string)rand(1,100).'/200/300',
             'iname'=>fake()->text(20),    
-            'para_id'=>fake()->randomElement(Para::pluck('id'))
-            
-        ];
+                
+                ]   ;
     }
 }
