@@ -16,21 +16,17 @@
         <x-nav/>
 
         <x-search/>
-        
-        @foreach ($gallery as $item)
-        
-      
-           <x-gallery :picture="$item"/>
-
-        @endforeach
        
 
-       
-        
-        <x-article_para :images="$images" :content="$content" :para="$para"/>
-       
-        
+@foreach ($images as $item) 
+<x-gallery :picture="$item"/>
+@endforeach
 
+
+@foreach ($para as $item)       
+        <x-article_para :images="$item"/>   
+@endforeach
+  
     </div>
         <x-footer/>
 </body>

@@ -22,7 +22,7 @@ class Content extends Model
     // Access all images through paras
     public function pic()
     {
-        return $this->hasManyThrough(Pic::class, Para::class, 'content_id', 'para_id', 'id', 'id');
+        return $this->hasManyThrough(Pic::class, Para::class, 'content_id', 'para_id', 'id', 'id')->with('para');
     }
     
     

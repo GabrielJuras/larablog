@@ -10,7 +10,7 @@
          
           <div class="card-body">
             <h5 class="card-title"><a class="title" href="/larablog/public/content/{{$item['id']}}">{{$item['title']}}</a></h5>
-            <p class="card-text">{{ $item->para[0]->para }}</p>
+            <p class="card-text">{{ $item->paras[0]->para}}</p>
           </div>
           <div class="card-footer">
             <small class="text-body-secondary">trhw</small>

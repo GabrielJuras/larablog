@@ -24,23 +24,17 @@ Route::get('/', function () {
 
 Route::get('/content/{id}', function ($id) {
 
-   
-    $content = Content::all()->find($id);
-    $para = Para::all()->where('content_id','=',$id);
-    $pic = Pic::all()->where('content_id','=',$id);
-    // $gallery =[];
-    // foreach ($content->paras as $para) {
-    //      array_push($gallery, $para->paratitle, $para->para);
-    //      foreach ($para->images as $image) {
-    //          array_push($gallery,$image->url,$image->iname);
-    //      }
-    //  }
+   $content = Content::all()->find($id);
+
+    $gallery = $content->pic;
+    $para = $content->paras;
+  
+
     
-    dd($pic, $para);
-    
-    return view('content',[
-           'gallery'=> $gallery,
-                
+ return view('content',[
+            'content'=> $content,
+            'images'=> $gallery,
+            'para'=>$para,
     ]);
 });
 
